@@ -1,10 +1,10 @@
-import { expect, test } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from 'vitest';
+import {render} from "@testing-library/react";
 import Page from "./page";
 
-test("App Router: Works with Server Components", () => {
-  render(<Page />);
-  expect(
-    screen.getByRole("heading", { level: 1, name: "App Router" }),
-  ).toBeDefined();
-});
+describe('Page', () => {
+  it('render tasks', () => {
+    const { container } = render(<Page />)
+    expect(container).toHaveTextContent("아무 일도 하기 싫다");
+  })
+})
